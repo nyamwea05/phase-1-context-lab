@@ -21,3 +21,8 @@ const allWagesFor = function () {
     return payable
 }
 
+const allWagesFor = function () {
+    const eligibleDates = this.timeInEvents.map(e => e.date);
+    const payable = eligibleDates.reduce((memo, date) => memo + wagesEarnedOnDate.call(this, date), 0);
+    return payable;
+  }
